@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Root styles */
+/* ========== Root Styles ========== */
 @layer base {
   * {
     @apply transition-colors duration-base;
@@ -15,50 +15,52 @@
   }
 
   body {
-    @apply bg-white text-slate-900 font-sans;
+    @apply bg-surface-base text-text-primary font-sans;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
-  /* Headings */
+  /* ========== Typography Hierarchy ========== */
+  /* Display headings - serif, editorial character */
   h1 {
-    @apply font-display font-bold text-5xl leading-tight tracking-tight md:text-6xl lg:text-7xl;
+    @apply font-display font-bold text-5xl leading-tight tracking-tight text-text-primary md:text-6xl lg:text-7xl;
   }
 
   h2 {
-    @apply font-display font-bold text-4xl leading-tight tracking-tight md:text-5xl;
+    @apply font-display font-bold text-4xl leading-tight tracking-tight text-text-primary md:text-5xl;
   }
 
   h3 {
-    @apply font-display font-bold text-3xl leading-tight tracking-tight md:text-4xl;
+    @apply font-display font-bold text-3xl leading-tight tracking-tight text-text-primary md:text-4xl;
   }
 
+  /* Body headings - sans serif, structured */
   h4 {
-    @apply font-sans font-bold text-2xl leading-tight tracking-tight md:text-3xl;
+    @apply font-sans font-semibold text-2xl leading-tight tracking-tight text-text-primary md:text-3xl;
   }
 
   h5 {
-    @apply font-sans font-bold text-xl leading-relaxed tracking-tight md:text-2xl;
+    @apply font-sans font-semibold text-xl leading-relaxed tracking-tight text-text-primary md:text-2xl;
   }
 
   h6 {
-    @apply font-sans font-bold text-lg leading-relaxed tracking-tight;
+    @apply font-sans font-semibold text-lg leading-relaxed tracking-tight text-text-primary;
   }
 
-  /* Paragraphs */
+  /* Body text */
   p {
-    @apply font-sans text-base leading-relaxed;
+    @apply font-sans text-base leading-relaxed text-text-primary;
   }
 
   /* Links */
   a {
-    @apply text-primary-700 hover:text-primary-800 transition-colors duration-fast;
+    @apply text-primary hover:text-primary-light transition-colors duration-base;
   }
 
   /* Focus states for accessibility */
   button:focus-visible,
   a:focus-visible,
   input:focus-visible {
-    @apply outline-2 outline-offset-2 outline-primary-600;
+    @apply outline-2 outline-offset-2 outline-primary;
   }
 
   /* Reduced motion */
@@ -74,37 +76,42 @@
   }
 }
 
-/* Component styles */
+/* ========== Component Styles ========== */
 @layer components {
-  /* Buttons */
+  /* ========== Buttons ========== */
   .btn {
     @apply px-lg py-md font-sans font-semibold text-base rounded-lg transition-all duration-base;
     @apply focus-visible:outline-2 focus-visible:outline-offset-2;
   }
 
   .btn-primary {
-    @apply bg-primary-900 text-white hover:bg-primary-800 active:bg-primary-950 focus-visible:outline-primary-600;
+    @apply bg-primary text-brand-white hover:bg-primary-light active:bg-primary-dark focus-visible:outline-primary;
+    @apply shadow-sm hover:shadow-md;
   }
 
   .btn-secondary {
-    @apply bg-slate-100 text-slate-900 hover:bg-slate-200 active:bg-slate-300 focus-visible:outline-slate-400;
+    @apply bg-surface-elevated text-text-primary hover:bg-brand-ivory active:bg-brand-ivory-light focus-visible:outline-primary;
+    @apply border border-brand-border;
+    @apply shadow-sm hover:shadow-md;
   }
 
   .btn-tertiary {
-    @apply bg-transparent text-primary-700 border-2 border-primary-700 hover:bg-primary-50 active:bg-primary-100 focus-visible:outline-primary-600;
+    @apply bg-transparent text-primary border border-primary hover:bg-primary-pale active:bg-primary-light focus-visible:outline-primary;
+    @apply font-semibold;
   }
 
   .btn-ghost {
-    @apply bg-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50;
+    @apply bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface-elevated;
   }
 
-  /* Forms */
+  /* ========== Forms ========== */
   input,
   textarea,
   select {
-    @apply border border-slate-300 rounded-lg px-md py-sm font-sans text-base;
-    @apply focus:border-primary-600 focus:ring-2 focus:ring-primary-100;
-    @apply placeholder-slate-400;
+    @apply border border-brand-border rounded-lg px-md py-sm font-sans text-base;
+    @apply bg-brand-white text-text-primary placeholder-text-muted;
+    @apply focus:border-primary focus:ring-2 focus:ring-primary-pale;
+    @apply transition-colors duration-base;
   }
 
   textarea {
@@ -112,46 +119,74 @@
   }
 
   label {
-    @apply block font-sans font-semibold text-sm text-slate-700 mb-sm;
+    @apply block font-sans font-semibold text-sm text-text-primary mb-sm;
   }
 
-  /* Section padding */
+  /* ========== Section Padding ========== */
   .section-padding {
     @apply px-lg py-3xl md:px-2xl md:py-4xl lg:px-3xl lg:py-5xl;
   }
 
-  /* Section container */
   .section-container {
     @apply w-full max-w-7xl mx-auto;
   }
 
-  /* Prose text */
-  .prose {
-    @apply max-w-3xl;
-  }
-
-  /* Cards */
+  /* ========== Cards ========== */
   .card {
-    @apply bg-white border border-slate-200 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-base;
+    @apply bg-surface-base border border-brand-border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-base;
   }
 
   .card-elevated {
-    @apply bg-white rounded-xl shadow-elevation hover:shadow-elevation-lg transition-shadow duration-base;
+    @apply bg-surface-base rounded-lg shadow-md hover:shadow-lg transition-shadow duration-base;
   }
 
-  /* Divider */
+  /* ========== Dividers ========== */
   .divider {
-    @apply h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent;
+    @apply h-px bg-brand-border;
   }
 
-  /* Text utilities */
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-700 to-primary-900 bg-clip-text text-transparent;
+  .divider-subtle {
+    @apply h-px bg-gradient-to-r from-transparent via-brand-border to-transparent;
   }
 
-  /* Link underline effect */
+  /* ========== Decorative Elements ========== */
+  /* Gold accent line (use sparingly) */
+  .accent-line {
+    @apply h-1 bg-accent w-12 rounded-full;
+  }
+
+  /* Subtle background tint - warm ivory */
+  .bg-premium {
+    @apply bg-brand-ivory;
+  }
+
+  /* Elevated background - cream */
+  .bg-warm {
+    @apply bg-surface-elevated;
+  }
+
+  /* ========== Text Utilities ========== */
+  .text-primary-large {
+    @apply text-text-primary font-display text-5xl md:text-6xl leading-tight;
+  }
+
+  .text-secondary-large {
+    @apply text-text-secondary font-display text-3xl md:text-4xl leading-tight;
+  }
+
+  /* Muted text for metadata, captions */
+  .text-meta {
+    @apply text-text-muted font-sans text-sm;
+  }
+
+  /* Accent text - use for emphasis (sparingly) */
+  .text-accent {
+    @apply text-accent font-semibold;
+  }
+
+  /* Link with underline effect */
   .link-underline {
-    @apply relative inline-block text-primary-700 hover:text-primary-800;
+    @apply relative inline-block text-primary hover:text-primary-light;
   }
 
   .link-underline::after {
@@ -160,7 +195,7 @@
     bottom: -2px;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 1px;
     background-color: currentColor;
     transform: scaleX(0);
     transform-origin: right;
@@ -172,7 +207,16 @@
     transform-origin: left;
   }
 
-  /* Accessibility skip link */
+  /* ========== Prose/Editorial Styles ========== */
+  .prose {
+    @apply max-w-3xl;
+  }
+
+  .prose-lead {
+    @apply text-lg text-text-secondary font-sans leading-relaxed;
+  }
+
+  /* ========== Accessibility ========== */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -186,7 +230,7 @@
   }
 }
 
-/* Utility animations */
+/* ========== Utility Animations ========== */
 @layer utilities {
   .animate-pause {
     animation-play-state: paused;
@@ -196,30 +240,61 @@
     @apply transition-all duration-base;
   }
 
-  /* Gradient backgrounds */
-  .gradient-primary {
-    @apply bg-gradient-to-br from-primary-50 to-primary-100;
+  /* ========== Background Utilities ========== */
+  /* Editorial backgrounds - restrained use of brand colors */
+  .bg-primary-subtle {
+    @apply bg-primary-pale;
   }
 
-  .gradient-accent {
-    @apply bg-gradient-to-br from-accent-50 to-accent-100;
+  .bg-accent-subtle {
+    @apply bg-accent-pale;
   }
 
-  /* Text shadows for luxury feel */
+  /* ========== Border Utilities ========== */
+  .border-warm {
+    @apply border-brand-border;
+  }
+
+  /* ========== Text Shadow (Editorial Refinement) ========== */
   .text-shadow-sm {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-shadow: 0 1px 2px rgba(18, 49, 43, 0.05);
   }
 
   .text-shadow-md {
-    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 4px rgba(18, 49, 43, 0.1);
   }
 
-  /* Image effects */
+  /* ========== Image Effects ========== */
+  /* Subtle premium overlay with brand green */
   .image-overlay::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(15, 45, 44, 0.2), transparent);
+    background: linear-gradient(135deg, rgba(18, 49, 43, 0.08), transparent);
     pointer-events: none;
+  }
+
+  /* Light overlay for accent */
+  .image-overlay-accent::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(216, 163, 78, 0.06), transparent);
+    pointer-events: none;
+  }
+
+  /* ========== Spacing Utilities ========== */
+  /* Editorial rhythm */
+  .space-editorial {
+    @apply space-y-4xl md:space-y-5xl lg:space-y-6xl;
+  }
+
+  /* ========== Visibility & Display ========== */
+  .hidden-until-md {
+    @apply hidden md:block;
+  }
+
+  .visible-until-md {
+    @apply block md:hidden;
   }
 }
