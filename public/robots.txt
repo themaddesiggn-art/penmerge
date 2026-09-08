@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /.next/
+Disallow: /api/
+
+Sitemap: https://penmerge.com/sitemap.xml
