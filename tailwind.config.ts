@@ -8,68 +8,87 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary - Deep teal/forest green
+        // ========== PenMerge Brand Colors (Source of Truth) ==========
+        // Deep Green - Primary brand anchor color
+        'brand-green': '#12312B',
+        'brand-green-light': '#1A3F38',
+        'brand-green-lighter': '#234A42',
+        
+        // Warm Gold - Refined accent (used sparingly)
+        'brand-gold': '#D8A34E',
+        'brand-gold-light': '#E5B866',
+        'brand-gold-lighter': '#F0D4A0',
+        
+        // Warm Ivory - Editorial premium background
+        'brand-ivory': '#EAE0C8',
+        'brand-ivory-light': '#F5F0E5',
+        
+        // Soft Cream - Light editorial background
+        'brand-cream': '#F4EEE1',
+        'brand-cream-light': '#FAFBF8',
+        
+        // Text & Utility Colors
+        'brand-text': '#10231F',
+        'brand-text-muted': '#53615D',
+        'brand-border': '#D9D1BC',
+        'brand-white': '#FFFFFF',
+
+        // ========== Semantic Color Tokens ==========
+        // Surface backgrounds
+        surface: {
+          base: '#FFFFFF',
+          elevated: '#F4EEE1',
+          warm: '#EAE0C8',
+          alt: '#F5F0E5',
+        },
+        
+        // Text hierarchy
+        text: {
+          primary: '#10231F',
+          secondary: '#53615D',
+          muted: '#8B9A95',
+          inverse: '#FFFFFF',
+        },
+        
+        // Brand semantic
         primary: {
-          50: '#f0f7f6',
-          100: '#d9eeed',
-          200: '#b3dddb',
-          300: '#8cccc9',
-          400: '#65bbb7',
-          500: '#3eaaa5',
-          600: '#2d8b8a',
-          700: '#236b6a',
-          800: '#1a4c4b',
-          900: '#0f2d2c',
-          950: '#082020',
+          DEFAULT: '#12312B',
+          dark: '#0A1F1B',
+          light: '#1A3F38',
+          lighter: '#234A42',
+          pale: '#E8F1F0',
         },
-        // Accent - Gold
+        
         accent: {
-          50: '#fffbf0',
-          100: '#fff3db',
-          200: '#ffe5b4',
-          300: '#ffd699',
-          400: '#ffc266',
-          500: '#ffb84d',
-          600: '#d4933b',
-          700: '#a8722d',
-          800: '#7c5220',
-          900: '#5a3c17',
-          950: '#3d270c',
+          DEFAULT: '#D8A34E',
+          dark: '#B8852F',
+          light: '#E5B866',
+          lighter: '#F0D4A0',
+          pale: '#FAF6F0',
         },
-        // Neutral - Cream/Off-white
-        cream: {
-          50: '#fffbf8',
-          100: '#fef8f3',
-          200: '#fdf3eb',
-          300: '#fcede3',
-          400: '#fbe3d7',
-          500: '#f9d7cb',
-          600: '#e8c5b5',
-          700: '#d4aa99',
-          800: '#b8877c',
-          900: '#8d6b5f',
-          950: '#6b4f46',
+        
+        // Borders & dividers
+        border: {
+          DEFAULT: '#D9D1BC',
+          light: '#E8E3D4',
+          lighter: '#F0EBE0',
         },
-        // Neutral grays
-        slate: {
-          50: '#f9fafb',
-          100: '#f3f4f6',
-          200: '#e5e7eb',
-          300: '#d1d5db',
-          400: '#9ca3af',
-          500: '#6b7280',
-          600: '#4b5563',
-          700: '#374151',
-          800: '#1f2937',
-          900: '#111827',
-          950: '#030712',
+        
+        // State colors (minimal, editorial tone)
+        state: {
+          success: '#2D6A5F',
+          warning: '#C89A3E',
+          error: '#8B4C3A',
+          info: '#2A4A44',
         },
       },
+      
       fontFamily: {
         serif: ['Crimson Text', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Crimson Text', 'Georgia', 'serif'],
       },
+      
       fontSize: {
         xs: ['12px', { lineHeight: '16px', letterSpacing: '0.3px' }],
         sm: ['14px', { lineHeight: '20px', letterSpacing: '0.25px' }],
@@ -83,6 +102,7 @@ const config: Config = {
         '6xl': ['60px', { lineHeight: '60px', letterSpacing: '-1.25px' }],
         '7xl': ['72px', { lineHeight: '72px', letterSpacing: '-1.5px' }],
       },
+      
       spacing: {
         xs: '4px',
         sm: '8px',
@@ -96,27 +116,27 @@ const config: Config = {
         '6xl': '96px',
         '7xl': '120px',
       },
+      
       borderRadius: {
         none: '0px',
         xs: '2px',
-        sm: '4px',
-        md: '6px',
-        lg: '8px',
-        xl: '12px',
-        '2xl': '16px',
-        '3xl': '20px',
-        full: '9999px',
+        sm: '3px',
+        md: '4px',
+        lg: '6px',
+        xl: '8px',
       },
+      
       boxShadow: {
-        xs: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-        sm: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)',
-        md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
-        lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)',
-        xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
-        '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-        elevation: '0 8px 24px rgba(15, 45, 44, 0.12)',
-        'elevation-lg': '0 16px 40px rgba(15, 45, 44, 0.16)',
+        none: '0 0 0 transparent',
+        xs: '0 1px 2px 0 rgba(18, 49, 43, 0.04)',
+        sm: '0 1px 3px 0 rgba(18, 49, 43, 0.08)',
+        md: '0 2px 8px 0 rgba(18, 49, 43, 0.12)',
+        lg: '0 4px 16px 0 rgba(18, 49, 43, 0.14)',
+        xl: '0 8px 24px 0 rgba(18, 49, 43, 0.16)',
+        'elevation': '0 8px 24px rgba(18, 49, 43, 0.12)',
+        'elevation-lg': '0 16px 40px rgba(18, 49, 43, 0.16)',
       },
+      
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'fade-in-up': 'fadeInUp 0.6s ease-out',
@@ -124,6 +144,7 @@ const config: Config = {
         'slide-in-right': 'slideInRight 0.5s ease-out',
         'slide-in-left': 'slideInLeft 0.5s ease-out',
       },
+      
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
@@ -146,17 +167,20 @@ const config: Config = {
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
       },
+      
       transitionDuration: {
         fast: '150ms',
         base: '200ms',
         slow: '300ms',
       },
+      
       transitionTimingFunction: {
         smooth: 'cubic-bezier(0.4, 0, 0.2, 1)',
         'ease-out': 'cubic-bezier(0, 0, 0.2, 1)',
         'ease-in': 'cubic-bezier(0.4, 0, 1, 1)',
       },
     },
+    
     screens: {
       xs: '320px',
       sm: '640px',
@@ -166,6 +190,7 @@ const config: Config = {
       '2xl': '1536px',
     },
   },
+  
   plugins: [],
 }
 
