@@ -11,18 +11,16 @@ interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   external?: boolean
 }
 
-export default function Link(
-  {
-    href,
-    children,
-    variant = 'default',
-    external = false,
-    className,
-    ...props
-  }: LinkProps
-) {
+export default function Link({
+  href,
+  children,
+  variant = 'default',
+  external = false,
+  className,
+  ...props
+}: LinkProps) {
   const variantStyles = {
-    default: 'text-primary-700 hover:text-primary-800 transition-colors duration-base',
+    default: 'text-primary hover:text-primary-light transition-colors duration-base',
     underline: 'link-underline',
     button: 'btn btn-primary',
   }

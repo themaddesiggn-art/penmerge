@@ -9,20 +9,18 @@ interface CardProps {
   onClick?: () => void
 }
 
-export default function Card(
-  {
-    children,
-    className,
-    elevated = false,
-    interactive = false,
-    onClick,
-  }: CardProps
-) {
+export default function Card({
+  children,
+  className,
+  elevated = false,
+  interactive = false,
+  onClick,
+}: CardProps) {
   return (
     <div
       className={cn(
         elevated ? 'card-elevated' : 'card',
-        interactive && 'cursor-pointer hover:scale-105',
+        interactive && 'cursor-pointer hover:shadow-lg hover:scale-105',
         className
       )}
       onClick={onClick}
